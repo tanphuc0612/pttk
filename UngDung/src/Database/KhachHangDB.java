@@ -28,4 +28,8 @@ public class KhachHangDB {
     public static boolean Them(Khachhang h){
         return DAO.Them(h);
     }
+    
+    public static boolean Update(Khachhang h){
+        return DAO.Update(h);
+    }
 }

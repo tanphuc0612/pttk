@@ -131,9 +131,20 @@ public class Khachhang  implements java.io.Serializable {
     }
     
     public static boolean KiemTraTonTai(Khachhang h){
-        return (!KhachHangDB.Doc("From Khachhang where ten = '" + h.getTen() + "' and email = '" + h.getEmail() + "'").isEmpty());
+        return (!KhachHangDB.Doc("From Khachhang where email = '" + h.getEmail() + "' or sdt = '" + h.getSdt() + "'").isEmpty());
     }
-
+    
+    public static boolean KiemTraTonTaiUpdate(Khachhang h){
+        return (!KhachHangDB.Doc("From Khachhang where (email = '" + h.getEmail() + "' or sdt = '" + h.getSdt() + "') and maKhachHang != " + h.getMaKhachHang()).isEmpty());
+    }
+    
+    public static boolean UpdateKhacHang(Khachhang h){
+        if(!KiemTraTonTaiUpdate(h)){
+            KhachHangDB.Update(h);
+            return true;
+        }
+        return false;
+    }
 }
 
 

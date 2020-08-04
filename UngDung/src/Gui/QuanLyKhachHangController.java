@@ -100,11 +100,31 @@ public class QuanLyKhachHangController implements Initializable {
             }
         });
     } 
+    private void CapNhatButton(){
+        sua.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            if(table.getSelectionModel().getSelectedItem() != null){
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("SuaKhachHang.fxml"));
+                    Parent View = loader.load();
+                    Scene scene;
+                    scene = new Scene(View,650,500); 
+                    Stage s = UngDung.getPrimaryStage();
+                    SuaKhachHangController controll = loader.getController();
+                    controll.Init(table.getSelectionModel().getSelectedItem());
+                    s.setScene(scene);
+                } catch (IOException ex) {
+                    Logger.getLogger(QuanLyKhachHangController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+    } 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.TableView();
         this.SearchButton();
         this.ThemButton();
+        this.CapNhatButton();
     }    
     
 }

@@ -61,8 +61,7 @@ public class ThemKhachHangController implements Initializable {
             if(ten.getText().isEmpty()||email.getText().isEmpty()||dia_chi.getText().isEmpty()||sdt.getText().isEmpty()||pass.getText().isEmpty()){
                 alert.setContentText("Cần nhập đủ thông tin");
             }else{
-                Khachhang h = new Khachhang(ten.getText(),email.getText(),dia_chi.getText(),sdt.getText(),pass.getText());
-                if(Khachhang.ThemKhacHang(h)){
+                if(Khachhang.ThemKhacHang(new Khachhang(ten.getText(),email.getText(),dia_chi.getText(),sdt.getText(),pass.getText()))){
                     alert.setContentText("Thêm thành công");
                 }else{
                     alert.setContentText("Khách hàng đã tồn tại");

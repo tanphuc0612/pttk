@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="395.0" prefWidth="743.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Gui.SuaKhachHangController">
+   <children>
+      <Text layoutX="160.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cập nhật khách hàng">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên:" />
+      <TextField fx:id="ten" layoutX="113.0" layoutY="80.0" />
+      <Text layoutX="51.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+      <TextField fx:id="email" layoutX="113.0" layoutY="134.0" />
+      <Text layoutX="51.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Địa chỉ:" />
+      <TextField fx:id="dia_chi" layoutX="113.0" layoutY="185.0" />
+      <Text layoutX="51.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SDT:" />
+      <TextField fx:id="sdt" layoutX="113.0" layoutY="233.0" />
+      <Text layoutX="51.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass:" />
+      <TextField fx:id="pass" layoutX="113.0" layoutY="279.0" />
+      <Label fx:id="ten_cu" layoutX="329.0" layoutY="85.0" text="Label" />
+      <Label fx:id="email_cu" layoutX="329.0" layoutY="139.0" text="Label" />
+      <Label fx:id="dia_chi_cu" layoutX="329.0" layoutY="190.0" text="Label" />
+      <Label fx:id="sdt_cu" layoutX="329.0" layoutY="238.0" text="Label" />
+      <Label fx:id="pass_cu" layoutX="329.0" layoutY="284.0" text="Label" />
+      <Button fx:id="sua" layoutX="249.0" layoutY="342.0" mnemonicParsing="false" text="Cập nhật" />
+      <Button fx:id="quan_ly" layoutX="347.0" layoutY="342.0" mnemonicParsing="false" text="Quản lý khách hàng" />
+   </children>
+</AnchorPane>

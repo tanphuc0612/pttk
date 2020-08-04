@@ -36,7 +36,20 @@ public class DAO {
             s.persist(h);
             s.getTransaction().commit();
             s.close();
+            return true;
+        }catch(HibernateException e){
+            System.out.println(e.getMessage());   
+        }
+        return false;
+    }
+    
+    public static boolean Update(Object h){
+        try{
+            Session s = NewHibernateUtil.getSessionFactory().openSession();
+            s.beginTransaction();
+            s.update(h);
             s.getTransaction().commit();
+            s.close();
             return true;
         }catch(HibernateException e){
             System.out.println(e.getMessage());   
