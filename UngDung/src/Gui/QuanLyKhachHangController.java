@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -119,12 +120,27 @@ public class QuanLyKhachHangController implements Initializable {
             }
         });
     } 
+    private void XoaButton(){
+        xoa.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            if(table.getSelectionModel().getSelectedItem() != null){
+                if(Khachhang.XoaKhacHang(table.getSelectionModel().getSelectedItem())){
+                    TableView();
+                    alert.setContentText("xóa thành công");
+                }else{
+                    alert.setContentText("có đơn đặt hàng nê không thể xóa");
+                }
+                alert.show();
+            }
+        });
+    } 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.TableView();
         this.SearchButton();
         this.ThemButton();
         this.CapNhatButton();
+        this.XoaButton();
     }    
     
 }

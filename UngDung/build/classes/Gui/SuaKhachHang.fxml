@@ -30,7 +30,7 @@
       <Label fx:id="dia_chi_cu" layoutX="329.0" layoutY="190.0" text="Label" />
       <Label fx:id="sdt_cu" layoutX="329.0" layoutY="238.0" text="Label" />
       <Label fx:id="pass_cu" layoutX="329.0" layoutY="284.0" text="Label" />
-      <Button fx:id="sua" layoutX="249.0" layoutY="342.0" mnemonicParsing="false" text="Cập nhật" />
-      <Button fx:id="quan_ly" layoutX="347.0" layoutY="342.0" mnemonicParsing="false" text="Quản lý khách hàng" />
+      <Button fx:id="sua" layoutX="167.0" layoutY="342.0" mnemonicParsing="false" text="Cập nhật" />
+      <Button fx:id="quan_ly" layoutX="262.0" layoutY="342.0" mnemonicParsing="false" text="Quản lý khách hàng" />
    </children>
 </AnchorPane>

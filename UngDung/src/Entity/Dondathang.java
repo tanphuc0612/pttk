@@ -2,6 +2,7 @@ package Entity;
 // Generated Aug 3, 2020 8:58:34 PM by Hibernate Tools 4.3.1
 
 
+import Database.DonDatHangDB;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -91,7 +92,9 @@ public class Dondathang  implements java.io.Serializable {
         this.chitietdondats = chitietdondats;
     }
 
-
+    public static boolean KiemTraTonTai(int ma){
+        return(!DonDatHangDB.Doc("From Dondathang where MaKH = " + ma).isEmpty());
+    }
 
 
 }

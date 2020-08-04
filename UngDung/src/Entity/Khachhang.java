@@ -145,6 +145,14 @@ public class Khachhang  implements java.io.Serializable {
         }
         return false;
     }
+    
+    public static boolean XoaKhacHang(Khachhang h){
+        if(!Dondathang.KiemTraTonTai(h.maKhachHang)){
+            KhachHangDB.Delete(h);
+            return true;
+        }
+        return false;
+    }
 }
 
 

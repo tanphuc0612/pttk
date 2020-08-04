@@ -32,4 +32,8 @@ public class KhachHangDB {
     public static boolean Update(Khachhang h){
         return DAO.Update(h);
     }
+    
+    public static boolean Delete(Khachhang h){
+        return DAO.Delete(h);
+    }
 }

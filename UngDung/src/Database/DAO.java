@@ -56,4 +56,18 @@ public class DAO {
         }
         return false;
     }
+    
+    public static boolean Delete(Object h){
+        try{
+            Session s = NewHibernateUtil.getSessionFactory().openSession();
+            s.beginTransaction();
+            s.delete(h);
+            s.getTransaction().commit();
+            s.close();
+            return true;
+        }catch(HibernateException e){
+            System.out.println(e.getMessage());   
+        }
+        return false;
+    }
 }
