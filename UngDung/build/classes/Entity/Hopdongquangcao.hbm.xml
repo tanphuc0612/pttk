@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2020 8:58:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Hopdongquangcao" table="hopdongquangcao" catalog="ungdung" optimistic-lock="version">
+        <id name="maHd" type="int">
+            <column name="MaHD" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="doitacquangcao" class="Entity.Doitacquangcao" fetch="select">
+            <column name="MaDT" not-null="true" />
+        </many-to-one>
+        <many-to-one name="nhanvien" class="Entity.Nhanvien" fetch="select">
+            <column name="NVQuanLy" not-null="true" />
+        </many-to-one>
+        <property name="ngayKi" type="timestamp">
+            <column name="NgayKi" length="19" not-null="true" />
+        </property>
+        <property name="thoiHan" type="int">
+            <column name="ThoiHan" not-null="true" />
+        </property>
+        <property name="thongTin" type="string">
+            <column name="ThongTin" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

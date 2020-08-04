@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2020 8:58:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Dondathang" table="dondathang" catalog="ungdung" optimistic-lock="version">
+        <id name="maDon" type="int">
+            <column name="MaDon" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="khachhang" class="Entity.Khachhang" fetch="select">
+            <column name="MaKH" not-null="true" />
+        </many-to-one>
+        <many-to-one name="nhanvien" class="Entity.Nhanvien" fetch="select">
+            <column name="MaNVGiao" not-null="true" />
+        </many-to-one>
+        <property name="xacNhan" type="boolean">
+            <column name="XacNhan" not-null="true" />
+        </property>
+        <property name="hinhThucThanhToan" type="string">
+            <column name="HinhThucThanhToan" not-null="true" />
+        </property>
+        <property name="tongTien" type="string">
+            <column name="TongTien" length="16777215" not-null="true" />
+        </property>
+        <set name="chitietdondats" table="chitietdondat" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaDon" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Chitietdondat" />
+        </set>
+    </class>
+</hibernate-mapping>
