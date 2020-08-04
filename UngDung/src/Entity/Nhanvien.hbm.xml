@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 3, 2020 8:58:35 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Nhanvien" table="nhanvien" catalog="ungdung" optimistic-lock="version">
+        <id name="maNhanVien" type="int">
+            <column name="MaNhanVien" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="loainhanvien" class="Entity.Loainhanvien" fetch="select">
+            <column name="MaLoai" not-null="true" />
+        </many-to-one>
+        <property name="ten" type="string">
+            <column name="Ten" not-null="true" />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass" not-null="true" />
+        </property>        
+        <set name="dontrahangs" table="dontrahang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNVLap" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Dontrahang" />
+        </set>
+        <set name="hopdongquangcaos" table="hopdongquangcao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NVQuanLy" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Hopdongquangcao" />
+        </set>
+        <set name="dondathangs" table="dondathang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNVGiao" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Dondathang" />
+        </set>
+        <set name="donnhaphangs" table="donnhaphang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaNVLap" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Donnhaphang" />
+        </set>
+    </class>
+</hibernate-mapping>
