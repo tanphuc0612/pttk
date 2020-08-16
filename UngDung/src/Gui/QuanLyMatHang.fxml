@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="968.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.QuanLyMatHangController">
+   <children>
+      <Text layoutX="398.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quản lý mặt hàng">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table" layoutY="78.0" prefHeight="265.0" prefWidth="968.0">
+         <columns>
+            <TableColumn fx:id="maMathang" prefWidth="129.0" text="Mã mặt hàng" />
+            <TableColumn fx:id="ten" prefWidth="215.0" text="Tên mặt hàng" />
+            <TableColumn fx:id="loaiHang" prefWidth="215.0" text="Loại hàng" />
+            <TableColumn fx:id="gia" prefWidth="226.0" text="Giá" />
+            <TableColumn fx:id="soLuong" prefWidth="183.0" text="Số lượng" />
+         </columns>
+      </TableView>
+      <Text layoutX="35.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã:" />
+      <Text layoutX="34.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên:" />
+      <TextField fx:id="ma_field" layoutX="75.0" layoutY="365.0" />
+      <TextField fx:id="ten_field" layoutX="75.0" layoutY="412.0" />
+      <Button fx:id="them" layoutX="398.0" layoutY="450.0" mnemonicParsing="false" text="Thêm" />
+      <Button layoutX="484.0" layoutY="450.0" mnemonicParsing="false" text="Xóa" fx:id="xoa" />
+      <Button fx:id="sua" layoutX="566.0" layoutY="450.0" mnemonicParsing="false" text="Sửa" />
+      <Button fx:id="search" layoutX="643.0" layoutY="450.0" mnemonicParsing="false" text="Search" />
+   </children>
+</AnchorPane>
