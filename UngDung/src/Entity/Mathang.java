@@ -2,7 +2,11 @@ package Entity;
 // Generated Aug 3, 2020 8:58:34 PM by Hibernate Tools 4.3.1
 
 
+import Database.DAO;
+import Database.MatHangDB;
+import Entity.Loaihang;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -24,7 +28,12 @@ public class Mathang  implements java.io.Serializable {
     public Mathang() {
     }
 
-	
+    public Mathang(int maloaihang, String ten, int gia, int soLuong) {
+        this.loaihang = Loaihang.LayLoaiHang(maloaihang);
+        this.ten = ten;
+        this.gia = gia;
+        this.soLuong = soLuong;
+    }
     public Mathang(int maMatHang, Loaihang loaihang, String ten, int gia, int soLuong) {
         this.maMatHang = maMatHang;
         this.loaihang = loaihang;
@@ -57,6 +66,10 @@ public class Mathang  implements java.io.Serializable {
     
     public void setLoaihang(Loaihang loaihang) {
         this.loaihang = loaihang;
+    }
+    
+    public void setLoaihang(int maloaihang) {
+        this.loaihang = Loaihang.LayLoaiHang(maloaihang);
     }
     public String getTen() {
         return this.ten;
@@ -109,8 +122,49 @@ public class Mathang  implements java.io.Serializable {
     }
 
 
+    public static List<Mathang> DanhSach(String ten, String ma){
+        String query = "From Mathang where 1 = 1";
+        if(!ma.isEmpty()){
+            query += " and maMatHang = " + ma;
+        }
+        if(!ten.isEmpty()){
+            query += " and ten = '" + ten + "'";
+        }
+        return MatHangDB.Doc(query);
+    }
 
-
+    
+    public static boolean ThemMatHang(Mathang h){
+        if(!KiemTraTonTai(h)){
+            MatHangDB.Them(h);
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean KiemTraTonTai(Mathang h){
+        return (!MatHangDB.Doc("From MatHang where Ten = '" + h.getTen() + "'").isEmpty());
+    }
+    
+    public static boolean KiemTraTonTaiUpdate(Mathang h){
+        return (!MatHangDB.Doc("From MatHang where (Ten = '" + h.getTen() + "') and MaMatHang != " + h.getMaMatHang()).isEmpty());
+    }
+    
+    public static boolean UpdateMatHang(Mathang h){
+        if(!KiemTraTonTaiUpdate(h)){
+            MatHangDB.Update(h);
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean XoaMatHang(Mathang h){
+        if(!Dondathang.KiemTraTonTai(h.maMatHang)){
+            MatHangDB.Delete(h);
+            return true;
+        }
+        return false;
+    }
 }
 
 
