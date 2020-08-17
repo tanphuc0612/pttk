@@ -9,6 +9,8 @@ import Entity.Gopy;
 import Entity.GopyId;
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +34,7 @@ import javafx.stage.Stage;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.scene.control.TableCell;
 
 
 import ungdung.UngDung;
@@ -63,30 +66,35 @@ public class QuanLyGopYController implements Initializable {
     @FXML
     private TableColumn<Gopy,String> cmt;
     @FXML
+    private TableColumn<Gopy,Date> ngay;
+    @FXML
     private TextField search_field;     
     
     @FXML
     private void TableView(){
         ObservableList<Gopy> list = FXCollections.observableArrayList();
         for(Gopy o : Gopy.DanhSach(search_field.getText())){
-            list.add(new Gopy(new GopyId(o.getKhachhang().getMaKhachHang(),o.getMathang().getMaMatHang()),o.getKhachhang(),o.getMathang(),o.getCmt()));
+            list.add(new Gopy(new GopyId(o.getKhachhang().getMaKhachHang(),o.getMathang().getMaMatHang()),o.getKhachhang(),o.getMathang(),o.getCmt(),o.getNgay()));
         }
         maKhachHang.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getKhachhang().getMaKhachHang()).asObject());
         tenKhachHang.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getKhachhang().getTen()));
                 maMatHang.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMathang().getMaMatHang()).asObject());
                 tenMatHang.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMathang().getTen()));
         cmt.setCellValueFactory(new PropertyValueFactory<>("cmt"));   
+        ngay.setCellValueFactory(new PropertyValueFactory<Gopy,Date>("ngay"));   
+
+
 
  
         //add your data to the table here.
         table.setItems(list);
     }
 //    
-//    private void SearchButton(){
-//        search.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-//            TableView();
-//        });
-//    } 
+    private void SearchButton(){
+        search.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            TableView();
+        });
+    } 
 //    public void Change(String string, int height, int width) throws IOException{
 //        FXMLLoader loader = new FXMLLoader();
 //        loader.setLocation(getClass().getResource(string));
@@ -142,7 +150,7 @@ public class QuanLyGopYController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.TableView();
-//        this.SearchButton();
+        this.SearchButton();
 //        this.ThemButton();
 //        this.CapNhatButton();
 //        this.XoaButton();

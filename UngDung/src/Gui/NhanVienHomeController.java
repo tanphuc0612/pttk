@@ -49,13 +49,13 @@ public class NhanVienHomeController implements Initializable {
                 Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-//         quan_ly_gop_y.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-//            try {
-//                Change("QuanLyGopY.fxml",550,1080);
-//            } catch (IOException ex) {
-//                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        });
+         quan_ly_gop_y.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            try {
+                Change("QuanLyGopY.fxml",550,1080);
+            } catch (IOException ex) {
+                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
