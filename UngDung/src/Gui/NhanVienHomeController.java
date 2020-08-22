@@ -28,7 +28,11 @@ import ungdung.UngDung;
 public class NhanVienHomeController implements Initializable {
     @FXML
     private Button quan_ly_khach_hang;
-    
+    @FXML
+    private Button quan_ly_gop_y;
+    @FXML
+    private Button quan_ly_mat_hang;
+
     public void Change(String string, int height, int width) throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(string));
@@ -47,7 +51,22 @@ public class NhanVienHomeController implements Initializable {
                 Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-    }      
+         quan_ly_gop_y.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            try {
+                Change("QuanLyGopY.fxml",550,1080);
+                 } catch (IOException ex) {
+                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        quan_ly_mat_hang.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            try {
+                Change("QuanLyMatHang.fxml",550,1080);
+            } catch (IOException ex) {
+                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+    }     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.QuanLyButton();
