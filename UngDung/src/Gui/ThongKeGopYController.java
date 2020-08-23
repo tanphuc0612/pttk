@@ -46,6 +46,7 @@ import ungdung.UngDung;
  */
 public class ThongKeGopYController implements Initializable {
 
+    @FXML
     private Button quaylai;
     @FXML
     private Button thongke;    
@@ -71,7 +72,7 @@ public class ThongKeGopYController implements Initializable {
     @FXML
     private void TableView(){
         ObservableList<Gopy> list = FXCollections.observableArrayList();
-        for(Gopy o : Gopy.DanhSach(search_field.getText())){
+        for(Gopy o : Gopy.DanhSach("")){
             list.add(new Gopy(new GopyId(o.getMathang().getMaMatHang(),o.getKhachhang().getMaKhachHang()),o.getKhachhang(),o.getMathang(),o.getCmt(),o.getDanhgia(),o.getNgay()));
         }
         maKhachHang.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getKhachhang().getMaKhachHang()).asObject());
