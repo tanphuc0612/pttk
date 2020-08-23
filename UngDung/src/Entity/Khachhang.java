@@ -153,6 +153,21 @@ public class Khachhang  implements java.io.Serializable {
         }
         return false;
     }
+    public static boolean CheckPass(String email, String pass){
+        String query = "From Khachhang where 1 = 1";
+        if(!email.isEmpty()){
+            query += " and email = '" + email + "'";
+        }
+        if(!pass.isEmpty()){
+            query += " and pass = '" + pass + "'";
+        }
+        return (!KhachHangDB.Doc(query).isEmpty());
+    }
+    public static Khachhang LayKhachHang(String email){
+        String query = "From Khachhang where 1 = 1";
+        query += " and email = '" + email + "'";
+        return KhachHangDB.Doc(query).get(0);
+    }
 }
 
 

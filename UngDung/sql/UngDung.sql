@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS LoaiNhanVien (
 CREATE TABLE IF NOT EXISTS NhanVien (
 	MaNhanVien int NOT NULL AUTO_INCREMENT,
 	MaLoai int NOT NULL,
+    Username varchar(255) not null,
     Ten varchar(255) not null,
     pass varchar(255) not null,
 	PRIMARY KEY (MaNhanVien),
@@ -65,8 +66,9 @@ CREATE TABLE IF NOT EXISTS DonDatHang (
 	XacNhan boolean NOT NULL,
 	HinhThucThanhToan varchar(255) not null,
     TongTien long not null,
+    TinhTrang varchar(255) not null,
     MaKH int not null,
-    MaNVGiao int not null,
+    MaNVGiao int,
 	PRIMARY KEY (MaDon),
 	FOREIGN KEY (MaKH)
         REFERENCES KhachHang (MaKhachHang)
@@ -181,11 +183,11 @@ Insert into KhachHang values(2,'Nguyễn Văn B','baba@gmail.com','234 Nguyễn 
 
 Insert into LoaiNhanVien values(1,'Nhân viên giao hàng');
 
-Insert into NhanVien values(1,1,'Pokemon','1');
+Insert into NhanVien values(1,1,'nhanvien1','Pokemon','1');
 
 Insert into LoaiHang values(1,'bánh kẹo');
 Insert into MatHang values(1,'bánh',1,1,1);
 
 insert into GopY values(1,1,'dở');
 
-insert into DonDatHang values(1,true,'atm',100,1,1);
+insert into DonDatHang values(1,true,'atm','Tiếp nhận',100,1,null);

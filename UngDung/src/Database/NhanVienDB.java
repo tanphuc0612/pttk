@@ -12,7 +12,7 @@ import java.util.List;
  * @author Hp
  */
 public class NhanVienDB {
-    public static List<Object[]> Doc(int ma, String pass){
-        return DAO.excuteQuery("From Nhanvien where maNhanVien = " + ma + " and pass = '" + pass + "'");
+    public static List<Object[]> Doc(String username, String pass){
+        return DAO.excuteQuery("From Nhanvien where username = '" + username + "' and pass = '" + pass + "'");
     }
 }

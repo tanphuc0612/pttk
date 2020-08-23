@@ -128,7 +128,7 @@ public class Mathang  implements java.io.Serializable {
             query += " and maMatHang = " + ma;
         }
         if(!ten.isEmpty()){
-            query += " and ten = '" + ten + "'";
+            query += " and ten like '%" + ten + "%'";
         }
         return MatHangDB.Doc(query);
     }
@@ -143,11 +143,11 @@ public class Mathang  implements java.io.Serializable {
     }
     
     public static boolean KiemTraTonTai(Mathang h){
-        return (!MatHangDB.Doc("From MatHang where Ten = '" + h.getTen() + "'").isEmpty());
+        return (!MatHangDB.Doc("From Mathang where ten = '" + h.getTen() + "'").isEmpty());
     }
     
     public static boolean KiemTraTonTaiUpdate(Mathang h){
-        return (!MatHangDB.Doc("From MatHang where (Ten = '" + h.getTen() + "') and MaMatHang != " + h.getMaMatHang()).isEmpty());
+        return (!MatHangDB.Doc("From Mathang where (ten = '" + h.getTen() + "') and maMatHang != " + h.getMaMatHang()).isEmpty());
     }
     
     public static boolean UpdateMatHang(Mathang h){
@@ -164,6 +164,11 @@ public class Mathang  implements java.io.Serializable {
             return true;
         }
         return false;
+    }
+    public static Mathang LayMatHang(int ma){
+        String query = "From Mathang where 1 = 1";
+        query += " and maMathang = " + ma ;
+        return MatHangDB.Doc(query).get(0);
     }
 }
 

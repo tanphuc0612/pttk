@@ -21,8 +21,8 @@
         <property name="soLuong" type="int">
             <column name="SoLuong" not-null="true" />
         </property>
-        <property name="giaBan" type="string">
-            <column name="GiaBan" length="16777215" not-null="true" />
+        <property name="giaBan" type="int">
+            <column name="GiaBan" not-null="true" />
         </property>
         <property name="tinhTrang" type="string">
             <column name="TinhTrang" not-null="true" />
