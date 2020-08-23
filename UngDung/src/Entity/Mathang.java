@@ -170,6 +170,9 @@ public class Mathang  implements java.io.Serializable {
         query += " and maMathang = " + ma ;
         return MatHangDB.Doc(query).get(0);
     }
+     public static boolean UpdateSL(Mathang h){
+         return MatHangDB.UpdateSL(h);
+    }
 }
 
 

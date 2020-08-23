@@ -124,7 +124,7 @@ public class Dondathang  implements java.io.Serializable {
             {
                 Mathang hangUpdateSoLuong = Mathang.LayMatHang(o.getMaMathangGio());
                 hangUpdateSoLuong.setSoLuong(hangUpdateSoLuong.getSoLuong()-o.getSoLuongGio());
-                Mathang.UpdateMatHang(hangUpdateSoLuong);
+                Mathang.UpdateSL(hangUpdateSoLuong);
             }  
         return true;
     }

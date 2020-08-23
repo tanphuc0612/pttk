@@ -37,4 +37,7 @@ public class MatHangDB {
     public static boolean Delete(Mathang h){
         return DAO.Delete(h);
     }
+    public static boolean UpdateSL(Mathang h){
+        return DAO.Merge(h);
+    }
 }
