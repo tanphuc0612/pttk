@@ -4,6 +4,7 @@ package Entity;
 
 import Database.DonDatHangDB;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,22 +18,31 @@ public class Dondathang  implements java.io.Serializable {
      private Nhanvien nhanvien;
      private boolean xacNhan;
      private String hinhThucThanhToan;
-     private String tongTien;
+     private long tongTien;
+     private String tinhTrang;
      private Set chitietdondats = new HashSet(0);
 
-    public Dondathang() {
+    public Dondathang()
+    {
+        
+    }
+    public Dondathang(String email, boolean xacNhan, String hinhThucThanhToan, long tongTien,String tinhTrang) {
+        this.khachhang = Khachhang.LayKhachHang(email);
+        this.xacNhan = xacNhan;
+        this.hinhThucThanhToan = hinhThucThanhToan;
+        this.tongTien = tongTien;
+        this.tinhTrang = tinhTrang;
     }
 
 	
-    public Dondathang(int maDon, Khachhang khachhang, Nhanvien nhanvien, boolean xacNhan, String hinhThucThanhToan, String tongTien) {
-        this.maDon = maDon;
+    public Dondathang(Khachhang khachhang, Nhanvien nhanvien, boolean xacNhan, String hinhThucThanhToan, long tongTien) {
         this.khachhang = khachhang;
         this.nhanvien = nhanvien;
         this.xacNhan = xacNhan;
         this.hinhThucThanhToan = hinhThucThanhToan;
         this.tongTien = tongTien;
     }
-    public Dondathang(int maDon, Khachhang khachhang, Nhanvien nhanvien, boolean xacNhan, String hinhThucThanhToan, String tongTien, Set chitietdondats) {
+    public Dondathang(int maDon, Khachhang khachhang, Nhanvien nhanvien, boolean xacNhan, String hinhThucThanhToan, long tongTien, Set chitietdondats) {
        this.maDon = maDon;
        this.khachhang = khachhang;
        this.nhanvien = nhanvien;
@@ -77,11 +87,18 @@ public class Dondathang  implements java.io.Serializable {
     public void setHinhThucThanhToan(String hinhThucThanhToan) {
         this.hinhThucThanhToan = hinhThucThanhToan;
     }
-    public String getTongTien() {
+    public String getTinhTrang() {
+        return tinhTrang;
+    }
+
+    public void setTinhTrang(String tinhTrang) {
+        this.tinhTrang = tinhTrang;
+    }
+    public long getTongTien() {
         return this.tongTien;
     }
     
-    public void setTongTien(String tongTien) {
+    public void setTongTien(long tongTien) {
         this.tongTien = tongTien;
     }
     public Set getChitietdondats() {
@@ -95,7 +112,27 @@ public class Dondathang  implements java.io.Serializable {
     public static boolean KiemTraTonTai(int ma){
         return(!DonDatHangDB.Doc("From Dondathang where MaKH = " + ma).isEmpty());
     }
-
+    public static boolean ThemDonHang(Dondathang d,List<GioHang> gioHang){
+            DonDatHangDB.Them(d);
+            int madon = DonDatHangDB.DocMaxMa("select Max(maDon) From Dondathang");
+            for(GioHang o: gioHang)
+            {
+                System.out.println("1");
+                Chitietdondat.ThemChiTietDonHang(new Chitietdondat(new ChitietdondatId(o.getMaMathangGio(),madon),madon,o.getMaMathangGio(),o.getSoLuongGio(),o.getGiaGio(),"Tiếp nhận"));
+            }
+            for(GioHang o: gioHang)
+            {
+                Mathang hangUpdateSoLuong = Mathang.LayMatHang(o.getMaMathangGio());
+                hangUpdateSoLuong.setSoLuong(hangUpdateSoLuong.getSoLuong()-o.getSoLuongGio());
+                Mathang.UpdateSL(hangUpdateSoLuong);
+            }  
+        return true;
+    }
+    public static Dondathang LayDonHang(int ma){
+        String query = "From Dondathang where 1 = 1";
+        query += " and maDon = " + ma;
+        return DonDatHangDB.Doc(query).get(0);
+    }
 
 }
 

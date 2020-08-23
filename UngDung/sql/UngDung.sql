@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS LoaiNhanVien (
 CREATE TABLE IF NOT EXISTS NhanVien (
 	MaNhanVien int NOT NULL AUTO_INCREMENT,
 	MaLoai int NOT NULL,
+    Username varchar(255) not null,
     Ten varchar(255) not null,
     pass varchar(255) not null,
 	PRIMARY KEY (MaNhanVien),
@@ -65,8 +66,9 @@ CREATE TABLE IF NOT EXISTS DonDatHang (
 	XacNhan boolean NOT NULL,
 	HinhThucThanhToan varchar(255) not null,
     TongTien long not null,
+    TinhTrang varchar(255) not null,
     MaKH int not null,
-    MaNVGiao int not null,
+    MaNVGiao int,
 	PRIMARY KEY (MaDon),
 	FOREIGN KEY (MaKH)
         REFERENCES KhachHang (MaKhachHang)
@@ -178,14 +180,30 @@ CREATE TABLE IF NOT EXISTS ChiTietDonTra (
 
 Insert into KhachHang values(1,'Nguyễn Văn A','123@gmail.com','456 Phan Đình phùng','123456789','1');
 Insert into KhachHang values(2,'Nguyễn Văn B','baba@gmail.com','234 Nguyễn Đình Chiểu','128456789','1');
+Insert into KhachHang values(3,'Nguyễn Văn C','bibo@gmail.com','456 Phan Đình phùng','000000000','1');
+Insert into KhachHang values(4,'Nguyễn Văn D','haiz@gmail.com','234 Nguyễn Đình Chiểu','11111111','1');
+Insert into KhachHang values(5,'Nguyễn Văn E','lol@gmail.com','456 Phan Đình phùng','99999999','1');
 
 Insert into LoaiNhanVien values(1,'Nhân viên giao hàng');
+Insert into LoaiNhanVien values(2,'Nhân viên quản lý');
+Insert into LoaiNhanVien values(3,'Nhân viên thủ quỹ');
 
-Insert into NhanVien values(1,1,'Pokemon','1');
+Insert into NhanVien values(1,1,'nhanvien1','Pokemon','1');
+Insert into NhanVien values(2,2,'nhanvien2','Nguyen Đoàn Tấn Phúc','1');
+Insert into NhanVien values(3,3,'nhanvien3','Lai Gia Phú','1');
+Insert into NhanVien values(4,1,'nhanvien4','Nguyên Thành Dat','1');
 
 Insert into LoaiHang values(1,'bánh kẹo');
-Insert into MatHang values(1,'bánh',1,1,1);
+Insert into LoaiHang values(2,'gia dụng');
+Insert into LoaiHang values(3,'điện tử');
+
+Insert into MatHang values(1,'bánh',100,1000,1);
+Insert into MatHang values(2,'chổi',1000,100,2);
+Insert into MatHang values(3,'điện thoại',5000,10,3);
 
 insert into GopY values(1,1,'dở');
+insert into GopY values(2,1,'dởm');
+insert into GopY values(3,2,'ok');
 
-insert into DonDatHang values(1,true,'atm',100,1,1);
+insert into DonDatHang values(1,true,'atm','Tiếp nhận',100,1,null);
+insert into ChiTietDonDat values(1,1,10,100,'Chờ');

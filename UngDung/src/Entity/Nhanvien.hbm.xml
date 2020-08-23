@@ -11,6 +11,9 @@
         <many-to-one name="loainhanvien" class="Entity.Loainhanvien" fetch="select">
             <column name="MaLoai" not-null="true" />
         </many-to-one>
+        <property name="username" type="string">
+            <column name="Username" not-null="true" />
+        </property>
         <property name="ten" type="string">
             <column name="Ten" not-null="true" />
         </property>
@@ -31,7 +34,7 @@
         </set>
         <set name="dondathangs" table="dondathang" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="MaNVGiao" not-null="true" />
+                <column name="MaNVGiao" not-null="false" />
             </key>
             <one-to-many class="Entity.Dondathang" />
         </set>

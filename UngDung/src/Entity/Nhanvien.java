@@ -14,6 +14,7 @@ public class Nhanvien  implements java.io.Serializable {
 
      private int maNhanVien;
      private Loainhanvien loainhanvien;
+     private String username;
      private String ten;
      private String pass;
      private Set dontrahangs = new HashSet(0);
@@ -25,15 +26,17 @@ public class Nhanvien  implements java.io.Serializable {
     }
 
 	
-    public Nhanvien(int maNhanVien, Loainhanvien loainhanvien, String ten, String pass) {
+    public Nhanvien(int maNhanVien, Loainhanvien loainhanvien,String username, String ten, String pass) {
         this.maNhanVien = maNhanVien;
         this.loainhanvien = loainhanvien;
+        this.username = username;
         this.ten = ten;
         this.pass = pass;
     }
-    public Nhanvien(int maNhanVien, Loainhanvien loainhanvien, String ten, String pass, Set dontrahangs, Set hopdongquangcaos, Set dondathangs, Set donnhaphangs) {
+    public Nhanvien(int maNhanVien, Loainhanvien loainhanvien,String username, String ten, String pass, Set dontrahangs, Set hopdongquangcaos, Set dondathangs, Set donnhaphangs) {
        this.maNhanVien = maNhanVien;
        this.loainhanvien = loainhanvien;
+       this.username = username;
        this.ten = ten;
        this.dontrahangs = dontrahangs;
        this.hopdongquangcaos = hopdongquangcaos;
@@ -55,6 +58,13 @@ public class Nhanvien  implements java.io.Serializable {
     
     public void setLoainhanvien(Loainhanvien loainhanvien) {
         this.loainhanvien = loainhanvien;
+    }
+    public String getUsername() {
+        return this.username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getTen() {
         return this.ten;
@@ -101,7 +111,7 @@ public class Nhanvien  implements java.io.Serializable {
     }
     
     public static boolean CheckPass(String username, String pass){
-        return (!NhanVienDB.Doc(Integer.valueOf(username), pass).isEmpty());
+        return (!NhanVienDB.Doc(username, pass).isEmpty());
     }
 
 }

@@ -1,6 +1,9 @@
 package Entity;
 // Generated Aug 3, 2020 8:58:34 PM by Hibernate Tools 4.3.1
 
+import Database.DonDatHangDB;
+
+
 
 
 /**
@@ -13,13 +16,19 @@ public class Chitietdondat  implements java.io.Serializable {
      private Dondathang dondathang;
      private Mathang mathang;
      private int soLuong;
-     private String giaBan;
+     private int giaBan;
      private String tinhTrang;
 
-    public Chitietdondat() {
+    public Chitietdondat(ChitietdondatId id,int madon, int mahang, int soLuong, int giaBan, String tinhTrang) {
+       this.id = id;
+       this.dondathang = Dondathang.LayDonHang(madon);
+       this.mathang = Mathang.LayMatHang(mahang);
+       this.soLuong = soLuong;
+       this.giaBan = giaBan;
+       this.tinhTrang = tinhTrang; 
     }
 
-    public Chitietdondat(ChitietdondatId id, Dondathang dondathang, Mathang mathang, int soLuong, String giaBan, String tinhTrang) {
+    public Chitietdondat(ChitietdondatId id, Dondathang dondathang, Mathang mathang, int soLuong, int giaBan, String tinhTrang) {
        this.id = id;
        this.dondathang = dondathang;
        this.mathang = mathang;
@@ -56,11 +65,11 @@ public class Chitietdondat  implements java.io.Serializable {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
-    public String getGiaBan() {
+    public int getGiaBan() {
         return this.giaBan;
     }
     
-    public void setGiaBan(String giaBan) {
+    public void setGiaBan(int giaBan) {
         this.giaBan = giaBan;
     }
     public String getTinhTrang() {
@@ -70,7 +79,11 @@ public class Chitietdondat  implements java.io.Serializable {
     public void setTinhTrang(String tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
-
+    public static boolean ThemChiTietDonHang(Chitietdondat ct){
+        System.out.println("2");
+            DonDatHangDB.ThemChiTiet(ct);
+        return true;
+    }
 
 
 
