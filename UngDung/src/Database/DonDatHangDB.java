@@ -6,6 +6,7 @@
 package Database;
 
 import Entity.Dondathang;
+import Entity.Chitietdondat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,5 +25,15 @@ public class DonDatHangDB {
                 }
             }
         return result;
+    }
+    public static int DocMaxMa(String query){
+            List list = DAO.excuteQuery(query);
+            return (int)list.get(0);
+    }
+    public static boolean Them(Dondathang d){
+        return DAO.Them(d);
+    }
+    public static boolean ThemChiTiet(Chitietdondat ct){
+        return DAO.Them(ct);
     }
 }

@@ -72,14 +72,14 @@ public class QuanLyMatHangController implements Initializable {
         for(Mathang o : Mathang.DanhSach(ten_field.getText(), ma_field.getText())){
             list.add(new Mathang(o.getMaMatHang(),o.getLoaihang(),o.getTen(),o.getGia(),o.getSoLuong()));
         }
-        
+        System.out.println("aaa");
         maMathang.setCellValueFactory(new PropertyValueFactory<>("MaMatHang"));
         ten.setCellValueFactory(new PropertyValueFactory<>("Ten"));
         loaiHang.setCellValueFactory(new PropertyValueFactory<>("loaihang"));
         gia.setCellValueFactory(new PropertyValueFactory<>("Gia"));
         soLuong.setCellValueFactory(new PropertyValueFactory<>("SoLuong"));
 
-        
+        System.out.println("bbb");
         table.setItems(list);
         
     }
@@ -153,6 +153,7 @@ public class QuanLyMatHangController implements Initializable {
         // TODO
         
         this.TableView();
+        System.out.println("cccc");
         this.SearchButton();
         this.ThemButton();
         this.CapNhatButton();

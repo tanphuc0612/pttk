@@ -12,7 +12,7 @@
             <column name="MaKH" not-null="true" />
         </many-to-one>
         <many-to-one name="nhanvien" class="Entity.Nhanvien" fetch="select">
-            <column name="MaNVGiao" not-null="true" />
+            <column name="MaNVGiao" not-null="false" />
         </many-to-one>
         <property name="xacNhan" type="boolean">
             <column name="XacNhan" not-null="true" />
@@ -20,8 +20,11 @@
         <property name="hinhThucThanhToan" type="string">
             <column name="HinhThucThanhToan" not-null="true" />
         </property>
-        <property name="tongTien" type="string">
-            <column name="TongTien" length="16777215" not-null="true" />
+        <property name="tongTien" type="long">
+            <column name="TongTien" not-null="true" />
+        </property>
+        <property name="tinhTrang" type="string">
+            <column name="TinhTrang" not-null="true" />
         </property>
         <set name="chitietdondats" table="chitietdondat" inverse="true" lazy="true" fetch="select">
             <key>

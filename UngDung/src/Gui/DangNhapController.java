@@ -5,6 +5,7 @@
  */
 package Gui;
 
+import Entity.Khachhang;
 import Entity.Nhanvien;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -34,7 +36,7 @@ public class DangNhapController implements Initializable {
     @FXML
     private TextField username;
     @FXML
-    private TextField pass;    
+    private PasswordField pass;    
     
     public void Change(String string, int height, int width) throws IOException{
         FXMLLoader loader = new FXMLLoader();
@@ -59,7 +61,23 @@ public class DangNhapController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }else{
+            }else if(Khachhang.CheckPass(username.getText(), pass.getText()))
+            {
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("KhachHangHome.fxml"));
+                    Parent View = loader.load();
+                    Scene scene;
+                    scene = new Scene(View,1340,590); 
+                    Stage s = UngDung.getPrimaryStage();
+                    KhachHangHomeController controll = loader.getController();
+                    controll.getEmail(username.getText());
+                    s.setScene(scene);
+                } catch (IOException ex) {
+                    Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else{
                 alert.setContentText("Sai pass hoặc sai username");
                 alert.show();
             }

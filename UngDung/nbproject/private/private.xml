@@ -3,23 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/pttk/UngDung/src/Entity/Khachhang.hbm.xml</file>
-            <file>file:/E:/pttk/UngDung/src/Entity/Dondathang.java</file>
-            <file>file:/E:/pttk/UngDung/src/Entity/Chitietdonnhaphang.java</file>
-            <file>file:/E:/pttk/UngDung/src/Entity/Nhanvien.java</file>
-            <file>file:/E:/pttk/UngDung/src/Database/DAO.java</file>
-            <file>file:/E:/pttk/UngDung/src/ungdung/UngDung.java</file>
-            <file>file:/E:/pttk/UngDung/src/Gui/SuaKhachHang.fxml</file>
-            <file>file:/E:/pttk/UngDung/src/Database/KhachHangDB.java</file>
-            <file>file:/E:/pttk/UngDung/src/Database/DonDatHangDB.java</file>
-            <file>file:/E:/pttk/UngDung/src/Gui/DangNhapController.java</file>
-            <file>file:/E:/pttk/UngDung/src/Entity/Dondathang.hbm.xml</file>
-            <file>file:/E:/pttk/UngDung/src/Gui/NhanVienHomeController.java</file>
-            <file>file:/E:/pttk/UngDung/nbproject/build-impl.xml</file>
-            <file>file:/E:/pttk/UngDung/src/Gui/QuanLyKhachHangController.java</file>
-            <file>file:/E:/pttk/UngDung/src/Gui/SuaKhachHangController.java</file>
-            <file>file:/E:/pttk/UngDung/src/Entity/Khachhang.java</file>
-            <file>file:/E:/pttk/UngDung/src/Gui/ThemKhachHangController.java</file>
+            <file>file:/C:/Users/admin/Documents/GitHub/pttk/UngDung/src/Entity/Dondathang.java</file>
+            <file>file:/C:/Users/admin/Documents/GitHub/pttk/UngDung/src/Database/DAO.java</file>
+            <file>file:/C:/Users/admin/Documents/GitHub/pttk/UngDung/src/Database/MatHangDB.java</file>
+            <file>file:/C:/Users/admin/Documents/GitHub/pttk/UngDung/src/Entity/Khachhang.java</file>
+            <file>file:/C:/Users/admin/Documents/GitHub/pttk/UngDung/src/Database/DonDatHangDB.java</file>
+            <file>file:/C:/Users/admin/Documents/GitHub/pttk/UngDung/src/Gui/KhachHangHomeController.java</file>
         </group>
     </open-files>
 </project-private>
