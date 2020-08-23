@@ -219,24 +219,14 @@ public class KhachHangHomeController implements Initializable {
             else
             {
                 Dondathang.ThemDonHang(new Dondathang(email.getText(),true,httt.getValue().toString(),Long.parseLong(tongTien.getText()),"Tiếp nhận"),gioHang);
-                /*for(GioHang o: gioHang)
-                {
-                    
-                }*/
-                /*try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("XacNhanDonHang.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    XacNhanDonHangController controll = (XacNhanDonHangController)fxmlLoader.getController();
-                    controll.init(gioHang);
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setTitle("Xác nhận đơn hàng");
-                    stage.setScene(new Scene(root1));     
-                    stage.show();
-                } catch (IOException ex) {
-                    System.out.println("false");
-                }*/
+                alert.setHeaderText(null);
+                alert.setContentText("Xác nhận đơn hàng thành công");
+                alert.show();
+                gioHang.clear();
+                
             }
+            DSHangView();
+            GioHangView();
         });
     }
     private void OutButton(){
