@@ -44,20 +44,8 @@ import ungdung.UngDung;
  *
  * @author Hp
  */
-public class QuanLyGopYController implements Initializable {
-    @FXML
-    private Button them;   
-    @FXML
-    private Button xoa; 
-    @FXML
-    private Button sua;     
-    @FXML
-    private Button tot; 
-    @FXML
-    private Button xau; 
-    @FXML
-    private Button search; 
-    @FXML
+public class ThongKeGopYController implements Initializable {
+
     private Button quaylai;
     @FXML
     private Button thongke;    
@@ -110,28 +98,11 @@ public class QuanLyGopYController implements Initializable {
         Stage s = UngDung.getPrimaryStage();
         s.setScene(scene);
     }
-    private void SearchButton(){
-        search.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            TableView();
-        });
-    } 
-
-    private void XoaButton(){
-        xoa.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            if(table.getSelectionModel().getSelectedItem() != null){
-                if(Gopy.XoaGopY(table.getSelectionModel().getSelectedItem())){
-                    TableView();
-                    alert.setContentText("xóa thành công");
-                }
-                alert.show();
-            }
-        });
-    }
+   
     private void QuayLaiButton(){
         quaylai.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             try {
-                Change("NhanVienHome.fxml",500,600);
+                Change("QuanLyGopY.fxml",550,1080);
             } catch (IOException ex) {
                 Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -140,45 +111,18 @@ public class QuanLyGopYController implements Initializable {
     }
 
    private void ThongKeButton(){
-//        thongke.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-//        PrinterJob printerJob = PrinterJob.createPrinterJob();
-//        if(printerJob.showPrintDialog(UngDung.getPrimaryStage().getOwner()) && printerJob.printPage(table))
-//        printerJob.endJob();
-//        });
         thongke.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            try {
-                Change("ThongKeGopY.fxml",550,1080);
-            } catch (IOException ex) {
-                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if(printerJob.showPrintDialog(UngDung.getPrimaryStage().getOwner()) && printerJob.printPage(table))
+        printerJob.endJob();
         });
    }
-    private void DanhGiaButtons(){
-        tot.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-                if(table.getSelectionModel().getSelectedItem() != null){
-                    Gopy a = table.getSelectionModel().getSelectedItem();
-                    a.setDanhgia("Tốt");
-                    Gopy.UpdateGopy(a);
-                    TableView();
-                }
-        });
-        xau.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-                if(table.getSelectionModel().getSelectedItem() != null){
-                    Gopy a = table.getSelectionModel().getSelectedItem();
-                    a.setDanhgia("Xấu");
-                    Gopy.UpdateGopy(a);
-                    TableView();
-                }
-        });
-    }
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.TableView();
-        this.SearchButton();
-        this.DanhGiaButtons();
         this.QuayLaiButton();
         this.ThongKeButton();
-        this.XoaButton();
     }    
     
 }

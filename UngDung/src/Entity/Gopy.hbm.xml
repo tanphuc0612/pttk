@@ -21,6 +21,9 @@
         <property name="cmt" type="string">
             <column name="Cmt" not-null="true" />
         </property>
+        <property name="danhgia" type="string">
+            <column name="DanhGia" not-null="true" />
+        </property>
         <property name="ngay" type="timestamp">
             <column name="Ngay" length="19" not-null="true" />
         </property>

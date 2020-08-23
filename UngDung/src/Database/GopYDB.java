@@ -25,15 +25,15 @@ public class GopYDB {
             }
             return result;
     }
-    public static boolean Them(Gopy h){
-        return DAO.Them(h);
+    public static boolean Them(Gopy g){
+        return DAO.Them(g);
     }
     
-    public static boolean Update(Gopy h){
-        return DAO.Update(h);
+    public static boolean Update(Gopy g){
+        return DAO.Update(g);
     }
     
-    public static boolean Delete(Gopy h){
-        return DAO.Delete(h);
+    public static boolean Delete(Gopy g){
+        return DAO.Delete(g);
     }
 }
