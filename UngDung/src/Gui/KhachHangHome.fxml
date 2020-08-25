@@ -64,5 +64,8 @@
       <Text layoutX="811.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hình thức thanh toán" />
       <ComboBox fx:id="httt" layoutX="974.0" layoutY="486.0" prefWidth="150.0" />
       <Label fx:id="email" layoutX="1040.0" layoutY="34.0" prefHeight="18.0" prefWidth="132.0" text="Email" />
+      <TextField fx:id="gop_y_field" layoutX="91.0" layoutY="451.0" prefHeight="27.0" prefWidth="338.0" />
+      <Text layoutX="22.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Góp ý :" />
+      <Button fx:id="gopY" layoutX="452.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Gửi" />
    </children>
 </AnchorPane>

@@ -86,6 +86,7 @@ public class QuanLyGopYController implements Initializable {
         for(Gopy o : Gopy.DanhSach(search_field.getText())){
             list.add(new Gopy(new GopyId(o.getMathang().getMaMatHang(),o.getKhachhang().getMaKhachHang()),o.getKhachhang(),o.getMathang(),o.getCmt(),o.getDanhgia(),o.getNgay()));
         }
+        
         maKhachHang.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getKhachhang().getMaKhachHang()).asObject());
         tenKhachHang.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getKhachhang().getTen()));
                 maMatHang.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getMathang().getMaMatHang()).asObject());

@@ -4,17 +4,20 @@
  * and open the template in the editor.
  */
 package Gui;
-
+import Entity.Gopy;
+import Entity.GopyId;
 import Entity.Dondathang;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
+import Entity.Khachhang;
 import Entity.Mathang;
 import Entity.GioHang;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -99,6 +102,11 @@ public class KhachHangHomeController implements Initializable {
     private ComboBox<String> httt;
     @FXML
     private Label email;
+    @FXML
+    private TextField gop_y_field;
+        @FXML
+        private Button gopY;
+
     @FXML
     private void DSHangView(){
         ObservableList<Mathang> list = FXCollections.observableArrayList();
@@ -247,6 +255,47 @@ public class KhachHangHomeController implements Initializable {
         Stage s = UngDung.getPrimaryStage();
         s.setScene(scene);
     }
+    private void GopYButton()
+    {
+            gopY.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Mathang mh = ds_hang.getSelectionModel().getSelectedItem();
+            if(mh!=null){
+                 Khachhang kh = Khachhang.LayKhachHang("123@gmail.com");
+            Gopy a = (new Gopy(new GopyId(mh.getMaMatHang(),kh.getMaKhachHang()),kh,mh,gop_y_field.getText(),"Chưa phân loại",new Date()));
+            if(!Gopy.KiemTraTonTai(a))
+            {
+                if(Gopy.ThemGopY(a))
+                {
+                    alert.setHeaderText(null);
+                    alert.setContentText("Góp ý của bạn đã được lưu!");
+                    alert.show();
+                }
+                else
+                {
+                    alert.setHeaderText(null);
+                    alert.setContentText("Góp ý không thành công");
+                    alert.show();
+                }
+                }
+                else 
+                        {
+                        alert.setHeaderText(null);
+                        alert.setContentText("Bạn đã góp ý sản phẩm này rồi");
+                        alert.show();
+                        }
+            }
+              else 
+                    {
+                    alert.setHeaderText(null);
+                    alert.setContentText("Vui lòng chọn sản phẩm cần góp ý");
+                    alert.show();
+                    }
+           
+               
+
+        });
+    }
     
     /**
      * Initializes the controller class.
@@ -263,5 +312,7 @@ public class KhachHangHomeController implements Initializable {
         this.XoaButton();
         this.OutButton();
         this.XacNhanButton();
+        this.GopYButton();
+
     }    
 }

@@ -96,6 +96,15 @@ public class Gopy  implements java.io.Serializable {
             GopYDB.Delete(g);
             return true;
     }
+    public static boolean ThemGopY(Gopy g){
+//        GopyId gid = g.getId();
+//        Gopy a = Gopy.getById(gid).get(0);
+            GopYDB.Them(g);
+            return true;
+    }
+    public static boolean KiemTraTonTai(Gopy g){
+        return (!GopYDB.Doc("From Gopy where MaKh = " + g.getKhachhang().getMaKhachHang() + "' and MaSP = '" + g.getMathang().getMaMatHang() + "'").isEmpty());
+    }
 
 }
 
