@@ -75,9 +75,7 @@ public class ThongKeGopYController implements Initializable {
     @FXML
     private TableColumn<Gopy,String> danhGia;
     @FXML
-    private TableColumn<Gopy,Date> ngay;
-    @FXML
-    private TextField search_field;     
+    private TableColumn<Gopy,Date> ngay;    
     @FXML
     private DatePicker fromngay; 
     @FXML

@@ -46,23 +46,21 @@ import ungdung.UngDung;
  */
 public class QuanLyGopYController implements Initializable {
     @FXML
-    private Button them;   
+    private Button btnXoa; 
     @FXML
-    private Button xoa; 
+    private Button btnChan; 
     @FXML
-    private Button sua;     
+    private Button btnTot; 
     @FXML
-    private Button tot; 
+    private Button btnXau; 
     @FXML
-    private Button xau; 
+    private Button btnSearch; 
     @FXML
-    private Button search; 
+    private Button btnQuayLai;
     @FXML
-    private Button quaylai;
+    private Button btnThongKe;    
     @FXML
-    private Button thongke;    
-    @FXML
-    private TableView<Gopy> table;  
+    private TableView<Gopy> tableGopY;  
     @FXML
     private TableColumn<Gopy,Integer> maKhachHang;
     @FXML
@@ -78,12 +76,12 @@ public class QuanLyGopYController implements Initializable {
     @FXML
     private TableColumn<Gopy,Date> ngay;
     @FXML
-    private TextField search_field;     
+    private TextField inputSearch;     
     
     @FXML
-    private void TableView(){
+    private void tableGopY_view(){
         ObservableList<Gopy> list = FXCollections.observableArrayList();
-        for(Gopy o : Gopy.DanhSach(search_field.getText())){
+        for(Gopy o : Gopy.DanhSach(inputSearch.getText())){
             list.add(new Gopy(new GopyId(o.getMathang().getMaMatHang(),o.getKhachhang().getMaKhachHang()),o.getKhachhang(),o.getMathang(),o.getCmt(),o.getDanhgia(),o.getNgay()));
         }
         
@@ -99,7 +97,7 @@ public class QuanLyGopYController implements Initializable {
 
  
         //add your data to the table here.
-        table.setItems(list);
+        tableGopY.setItems(list);
     }
     
     public void Change(String string, int height, int width) throws IOException{
@@ -111,26 +109,26 @@ public class QuanLyGopYController implements Initializable {
         Stage s = UngDung.getPrimaryStage();
         s.setScene(scene);
     }
-    private void SearchButton(){
-        search.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-            TableView();
+    private void btnSearch_click(){
+        btnSearch.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            tableGopY_view();
         });
     } 
 
-    private void XoaButton(){
-        xoa.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+    private void btnXoa_click(){
+        btnXoa.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            if(table.getSelectionModel().getSelectedItem() != null){
-                if(Gopy.XoaGopY(table.getSelectionModel().getSelectedItem())){
-                    TableView();
+            if(tableGopY.getSelectionModel().getSelectedItem() != null){
+                if((tableGopY.getSelectionModel().getSelectedItem()).XoaGopY()){
+                    tableGopY_view();
                     alert.setContentText("xóa thành công");
                 }
                 alert.show();
             }
         });
     }
-    private void QuayLaiButton(){
-        quaylai.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+    private void btnQuayLai_click(){
+        btnQuayLai.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             try {
                 Change("NhanVienHome.fxml",500,600);
             } catch (IOException ex) {
@@ -140,13 +138,13 @@ public class QuanLyGopYController implements Initializable {
          
     }
 
-   private void ThongKeButton(){
+   private void btnThongKe_click(){
 //        thongke.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
 //        PrinterJob printerJob = PrinterJob.createPrinterJob();
 //        if(printerJob.showPrintDialog(UngDung.getPrimaryStage().getOwner()) && printerJob.printPage(table))
 //        printerJob.endJob();
 //        });
-        thongke.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+        btnThongKe.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             try {
                 Change("ThongKeGopY.fxml",550,1080);
             } catch (IOException ex) {
@@ -154,32 +152,32 @@ public class QuanLyGopYController implements Initializable {
             }
         });
    }
-    private void DanhGiaButtons(){
-        tot.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-                if(table.getSelectionModel().getSelectedItem() != null){
-                    Gopy a = table.getSelectionModel().getSelectedItem();
+    private void btnDanhGia_click(){
+        btnTot.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+                if(tableGopY.getSelectionModel().getSelectedItem() != null){
+                    Gopy a = tableGopY.getSelectionModel().getSelectedItem();
                     a.setDanhgia("Tốt");
                     Gopy.UpdateGopy(a);
-                    TableView();
+                    tableGopY_view();
                 }
         });
-        xau.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
-                if(table.getSelectionModel().getSelectedItem() != null){
-                    Gopy a = table.getSelectionModel().getSelectedItem();
+        btnXau.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+                if(tableGopY.getSelectionModel().getSelectedItem() != null){
+                    Gopy a = tableGopY.getSelectionModel().getSelectedItem();
                     a.setDanhgia("Xấu");
                     Gopy.UpdateGopy(a);
-                    TableView();
+                    tableGopY_view();
                 }
         });
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.TableView();
-        this.SearchButton();
-        this.DanhGiaButtons();
-        this.QuayLaiButton();
-        this.ThongKeButton();
-        this.XoaButton();
+        this.tableGopY_view();
+        this.btnSearch_click();
+        this.btnDanhGia_click();
+        this.btnQuayLai_click();
+        this.btnThongKe_click();
+        this.btnXoa_click();
     }    
     
 }

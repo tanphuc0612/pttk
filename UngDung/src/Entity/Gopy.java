@@ -82,28 +82,28 @@ public class Gopy  implements java.io.Serializable {
         if(!search.isEmpty()){
             query += " and  (MaSP LIKE  '%" + search+"%'"+" or MaKH LIKE '%" + search+"%')";
         }
-        return GopYDB.Doc(query);
+        return GopYDB.Get(query);
     }
      public static List<Gopy> getById(GopyId id){
         String query = "From Gopy where MaSP="+id.getMaSp()+" and MaKH="+id.getMaKh();   
          System.out.print(query);  
-        return GopYDB.Doc(query);
+        return GopYDB.Get(query);
     }
 
-    public static boolean XoaGopY(Gopy g){
+    public boolean XoaGopY(){
 //        GopyId gid = g.getId();
 //        Gopy a = Gopy.getById(gid).get(0);
-            GopYDB.Delete(g);
+            GopYDB.Delete(this);
             return true;
     }
     public static boolean ThemGopY(Gopy g){
 //        GopyId gid = g.getId();
 //        Gopy a = Gopy.getById(gid).get(0);
-            GopYDB.Them(g);
+            GopYDB.Add(g);
             return true;
     }
     public static boolean KiemTraTonTai(Gopy g){
-        return (!GopYDB.Doc("From Gopy where MaKh = " + g.getKhachhang().getMaKhachHang() + "' and MaSP = '" + g.getMathang().getMaMatHang() + "'").isEmpty());
+        return (!GopYDB.Get("From Gopy where MaKh = " + g.getKhachhang().getMaKhachHang() + "' and MaSP = '" + g.getMathang().getMaMatHang() + "'").isEmpty());
     }
 
 }

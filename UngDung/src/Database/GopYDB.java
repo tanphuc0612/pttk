@@ -14,7 +14,7 @@ import java.util.List;
  * @author Hp
  */
 public class GopYDB {
-    public static List<Gopy> Doc(String query){
+    public static List<Gopy> Get(String query){
             List<Object[]> list = DAO.excuteQuery(query);
             List<Gopy> result = new ArrayList<>();
             if(list != null)
@@ -25,7 +25,7 @@ public class GopYDB {
             }
             return result;
     }
-    public static boolean Them(Gopy g){
+    public static boolean Add(Gopy g){
         return DAO.Them(g);
     }
     
