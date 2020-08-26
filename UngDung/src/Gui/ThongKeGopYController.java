@@ -123,7 +123,11 @@ public class ThongKeGopYController implements Initializable {
         }
         else
         {
-            //alert here
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+                alert.setContentText("Vui lòng nhập khoảng thời gian thống kê");
+                alert.show();
+                return;
         }
     }
     private void ThongKeView(){

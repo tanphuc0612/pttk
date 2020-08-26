@@ -23,6 +23,9 @@
         <property name="pass" type="string">
             <column name="Pass" not-null="true" />
         </property>
+        <property name="bichan" type="boolean">
+            <column name="BiChan" not-null="true" />
+        </property>
         <set name="gopies" table="gopy" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="MaKH" not-null="true" />

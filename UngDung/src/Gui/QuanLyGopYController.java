@@ -6,6 +6,7 @@
 package Gui;
 
 import Entity.Gopy;
+import Entity.Khachhang;
 import Entity.GopyId;
 import java.io.IOException;
 import java.net.URL;
@@ -164,6 +165,39 @@ public class QuanLyGopYController implements Initializable {
                 }
         });
     }
+    private void btnChan_click(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        btnChan.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+                if(tableGopY.getSelectionModel().getSelectedItem() != null){
+                    Gopy a = tableGopY.getSelectionModel().getSelectedItem();
+                   if(a.getKhachhang().isBichan())
+                    {
+                        alert.setHeaderText(null);
+                            alert.setContentText("Khách hàng này đã bị chặn góp ý rồi");
+                            alert.show();
+                            return;
+                    }
+                   else
+                    {
+                        Khachhang b = a.getKhachhang();
+                        b.setBichan(true);
+                        Khachhang.UpdateKhacHang(b);
+                        alert.setContentText("Chặn góp ý cho khách hàng " + b.getTen()+" thành công");
+                            alert.show();
+                            return;
+                    }
+                     
+                }
+        });
+        btnXau.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+                if(tableGopY.getSelectionModel().getSelectedItem() != null){
+                    Gopy a = tableGopY.getSelectionModel().getSelectedItem();
+                    a.setDanhgia("Xấu");
+                    Gopy.UpdateGopy(a);
+                    tableGopY_view();
+                }
+        });
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.tableGopY_view();
@@ -172,6 +206,7 @@ public class QuanLyGopYController implements Initializable {
         this.btnQuayLai_click();
         this.btnThongKe_click();
         this.btnXoa_click();
+        this.btnChan_click();
     }    
     
 }

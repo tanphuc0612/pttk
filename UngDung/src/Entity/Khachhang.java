@@ -24,6 +24,7 @@ public class Khachhang  implements java.io.Serializable {
      private String pass;
      private Set gopies = new HashSet(0);
      private Set dondathangs = new HashSet(0);
+     private boolean bichan;
 
     public Khachhang() {
     }
@@ -36,6 +37,7 @@ public class Khachhang  implements java.io.Serializable {
         this.sdt = sdt;
         this.pass = pass;
         this.maKhachHang = maKhachHang;
+        this.bichan = false;
     }    
     
     public Khachhang(String ten, String email, String diaChi, String sdt, String pass) {
@@ -44,6 +46,7 @@ public class Khachhang  implements java.io.Serializable {
         this.diaChi = diaChi;
         this.sdt = sdt;
         this.pass = pass;
+         this.bichan = false;
     }
     
     public Khachhang(String ten, String email, String diaChi, String sdt, String pass, Set gopies, Set dondathangs) {
@@ -54,6 +57,7 @@ public class Khachhang  implements java.io.Serializable {
        this.pass = pass;
        this.gopies = gopies;
        this.dondathangs = dondathangs;
+        this.bichan = false;
     }
    
     public Integer getMaKhachHang() {
@@ -179,6 +183,13 @@ public class Khachhang  implements java.io.Serializable {
         String query = "From Khachhang where 1 = 1";
         query += " and email = '" + email + "'";
         return KhachHangDB.Doc(query).get(0);
+    }
+    public boolean isBichan() {
+        return bichan;
+    }
+
+    public void setBichan(boolean bichan) {
+        this.bichan = bichan;
     }
 }
 

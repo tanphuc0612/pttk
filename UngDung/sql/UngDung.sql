@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS KhachHang (
     DiaChi VARCHAR(255) NOT NULL,
     SDT VARCHAR(255) NOT NULL unique,
     Pass varchar(255) NOT NULL,
+   BiChan boolean NOT NULL DEFAULT false,
     PRIMARY KEY (MaKhachHang)
 );
 
@@ -36,7 +37,6 @@ CREATE TABLE IF NOT EXISTS GopY (
 	Cmt VARCHAR(255) NOT NULL ,
 	Ngay DATE NOT NULL,
 	DanhGia VARCHAR(255) NOT NULL DEFAULT "Chưa phân loại",
-    BiChan boolean NOT NULL DEFAULT false,
 	PRIMARY KEY (MaSP,MaKH),
 	FOREIGN KEY (MaKH)
         REFERENCES KhachHang (MaKhachHang)
