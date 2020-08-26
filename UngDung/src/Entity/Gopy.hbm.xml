@@ -27,5 +27,9 @@
         <property name="ngay" type="timestamp">
             <column name="Ngay" length="19" not-null="true" />
         </property>
+        <property name="bichan" type="boolean">
+            <column name="BiChan" not-null="true" />
+        </property>
+
     </class>
 </hibernate-mapping>

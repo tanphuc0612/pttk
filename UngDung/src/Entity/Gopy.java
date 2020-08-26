@@ -20,7 +20,18 @@ public class Gopy  implements java.io.Serializable {
      private String danhgia;
      private String cmt;
      private Date ngay;
+     private boolean bichan;
     public Gopy() {
+    }
+
+    public Gopy(GopyId id, Khachhang khachhang, Mathang mathang, String danhgia, String cmt, Date ngay, boolean bichan) {
+        this.id = id;
+        this.khachhang = khachhang;
+        this.mathang = mathang;
+        this.danhgia = danhgia;
+        this.cmt = cmt;
+        this.ngay = ngay;
+        this.bichan = bichan;
     }
 
     public Gopy(GopyId id, Khachhang khachhang, Mathang mathang, String cmt,String danhgia,Date ngay) {
@@ -68,6 +79,14 @@ public class Gopy  implements java.io.Serializable {
     }
     public String getDanhgia() {
         return this.danhgia;
+    }
+
+    public boolean isBichan() {
+        return bichan;
+    }
+
+    public void setBichan(boolean bichan) {
+        this.bichan = bichan;
     }
     
     public void setDanhgia(String danhgia) {
