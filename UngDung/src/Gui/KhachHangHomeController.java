@@ -255,22 +255,22 @@ public class KhachHangHomeController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             Mathang mh = ds_hang.getSelectionModel().getSelectedItem();
             if(mh!=null){
-                 Khachhang kh = Khachhang.LayKhachHang("123@gmail.com");
+                 Khachhang kh = Khachhang.LayKhachHang(email.getText());
             Gopy a = (new Gopy(new GopyId(mh.getMaMatHang(),kh.getMaKhachHang()),kh,mh,gop_y_field.getText(),"Chưa phân loại",new Date()));
-            if(!Gopy.KiemTraTonTai(a))
-            {
-                if(Gopy.ThemGopY(a))
+                if(!Gopy.KiemTraTonTai(a))
                 {
-                    alert.setHeaderText(null);
-                    alert.setContentText("Góp ý của bạn đã được lưu!");
-                    alert.show();
-                }
-                else
-                {
-                    alert.setHeaderText(null);
-                    alert.setContentText("Góp ý không thành công");
-                    alert.show();
-                }
+                    if(Gopy.ThemGopY(a))
+                    {
+                        alert.setHeaderText(null);
+                        alert.setContentText("Góp ý của bạn đã được lưu!");
+                        alert.show();
+                    }
+                    else
+                    {
+                        alert.setHeaderText(null);
+                        alert.setContentText("Góp ý không thành công");
+                        alert.show();
+                    }
                 }
                 else 
                         {
@@ -279,15 +279,12 @@ public class KhachHangHomeController implements Initializable {
                         alert.show();
                         }
             }
-              else 
-                    {
-                    alert.setHeaderText(null);
-                    alert.setContentText("Vui lòng chọn sản phẩm cần góp ý");
-                    alert.show();
-                    }
-           
-               
-
+            else 
+            {
+                alert.setHeaderText(null);
+                alert.setContentText("Vui lòng chọn sản phẩm cần góp ý");
+                alert.show();
+            }
         });
     }
     

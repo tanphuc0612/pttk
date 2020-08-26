@@ -103,7 +103,7 @@ public class Gopy  implements java.io.Serializable {
             return true;
     }
     public static boolean KiemTraTonTai(Gopy g){
-        return (!GopYDB.Get("From Gopy where MaKh = " + g.getKhachhang().getMaKhachHang() + "' and MaSP = '" + g.getMathang().getMaMatHang() + "'").isEmpty());
+        return (!GopYDB.Get("From Gopy where MaKh = " + g.getKhachhang().getMaKhachHang() + " and MaSP = " + g.getMathang().getMaMatHang() + "").isEmpty());
     }
 
 }

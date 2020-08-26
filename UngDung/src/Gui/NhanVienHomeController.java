@@ -68,7 +68,7 @@ public class NhanVienHomeController implements Initializable {
         });
         dang_xuat.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             try {
-                Change("DangNhap.fxml",550,550);
+                Change("DangNhap.fxml",400,600);
             } catch (IOException ex) {
                 Logger.getLogger(NhanVienHomeController.class.getName()).log(Level.SEVERE, null, ex);
             }

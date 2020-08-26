@@ -124,7 +124,7 @@ public class QuanLyMatHangController implements Initializable {
     private void HomeButton(){
         home.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             try {
-                Change("NhanVienHome.fxml",550,550);
+                Change("NhanVienHome.fxml",500,600);
             } catch (IOException ex) {
                 Logger.getLogger(QuanLyMatHangController.class.getName()).log(Level.SEVERE, null, ex);
             }

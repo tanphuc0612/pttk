@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -22,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import ungdung.UngDung;
 
@@ -71,6 +73,9 @@ public class DangNhapController implements Initializable {
                     scene = new Scene(View,1340,590); 
                     Stage s = UngDung.getPrimaryStage();
                     KhachHangHomeController controll = loader.getController();
+                    Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+                    s.setX((screenBounds.getWidth() - 1340) / 2);
+                    s.setY((screenBounds.getHeight() - 590) / 2);
                     controll.getEmail(username.getText());
                     s.setScene(scene);
                 } catch (IOException ex) {
