@@ -257,27 +257,37 @@ public class KhachHangHomeController implements Initializable {
             if(mh!=null){
                  Khachhang kh = Khachhang.LayKhachHang(email.getText());
             Gopy a = (new Gopy(new GopyId(mh.getMaMatHang(),kh.getMaKhachHang()),kh,mh,gop_y_field.getText(),"Chưa phân loại",new Date()));
-                if(!Gopy.KiemTraTonTai(a))
-                {
-                    if(Gopy.ThemGopY(a))
+               if(kh.isBichan())
                     {
-                        alert.setHeaderText(null);
-                        alert.setContentText("Góp ý của bạn đã được lưu!");
-                        alert.show();
+                                    alert.setHeaderText(null);
+                                   alert.setContentText("Bạn đã bị chặn góp ý");
+                                   alert.show();
+                                   return;
                     }
-                    else
+               else
                     {
-                        alert.setHeaderText(null);
-                        alert.setContentText("Góp ý không thành công");
-                        alert.show();
+                                           if(!Gopy.KiemTraTonTai(a))
+                           {
+                               if(Gopy.ThemGopY(a))
+                               {
+                                   alert.setHeaderText(null);
+                                   alert.setContentText("Góp ý của bạn đã được lưu!");
+                                   alert.show();
+                               }
+                               else
+                               {
+                                   alert.setHeaderText(null);
+                                   alert.setContentText("Góp ý không thành công");
+                                   alert.show();
+                               }
+                           }
+                           else 
+                                   {
+                                   alert.setHeaderText(null);
+                                   alert.setContentText("Bạn đã góp ý sản phẩm này rồi");
+                                   alert.show();
+                                   }
                     }
-                }
-                else 
-                        {
-                        alert.setHeaderText(null);
-                        alert.setContentText("Bạn đã góp ý sản phẩm này rồi");
-                        alert.show();
-                        }
             }
             else 
             {
