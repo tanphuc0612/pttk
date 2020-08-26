@@ -9,12 +9,10 @@ import Entity.Gopy;
 import Entity.GopyId;
 import java.io.IOException;
 import java.net.URL;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.util.Callback;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,15 +26,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.TableColumn.CellDataFeatures; 
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.beans.value.ObservableValue;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.scene.control.TableCell;
-import javafx.print.Paper;
-import javafx.print.PrinterJob;
 import ungdung.UngDung;
 
 /**
@@ -91,7 +84,7 @@ public class QuanLyGopYController implements Initializable {
                 tenMatHang.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getMathang().getTen()));
         cmt.setCellValueFactory(new PropertyValueFactory<>("cmt"));   
          danhGia.setCellValueFactory(new PropertyValueFactory<>("danhgia"));   
-        ngay.setCellValueFactory(new PropertyValueFactory<Gopy,Date>("ngay"));   
+        ngay.setCellValueFactory(new PropertyValueFactory<>("ngay"));   
         
 
 
@@ -127,12 +120,13 @@ public class QuanLyGopYController implements Initializable {
             }
         });
     }
+    
     private void btnQuayLai_click(){
         btnQuayLai.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             try {
                 Change("NhanVienHome.fxml",500,600);
             } catch (IOException ex) {
-                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(QuanLyGopYController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
          
@@ -148,7 +142,7 @@ public class QuanLyGopYController implements Initializable {
             try {
                 Change("ThongKeGopY.fxml",550,1080);
             } catch (IOException ex) {
-                Logger.getLogger(DangNhapController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(QuanLyGopYController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
    }

@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS GopY (
 	MaSP int NOT NULL,
 	MaKH int NOT NULL,
 	Cmt VARCHAR(255) NOT NULL ,
-	Ngay DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	Ngay DATE NOT NULL,
 	DanhGia VARCHAR(255) NOT NULL DEFAULT "Chưa phân loại",
 	PRIMARY KEY (MaSP,MaKH),
 	FOREIGN KEY (MaKH)
@@ -45,6 +45,9 @@ CREATE TABLE IF NOT EXISTS GopY (
         ON UPDATE RESTRICT ON DELETE CASCADE
 );
 
+CREATE TRIGGER myTable_OnInsert BEFORE INSERT ON `GopY`
+    FOR EACH ROW SET NEW.Ngay = CURDATE();
+    
 CREATE TABLE IF NOT EXISTS LoaiNhanVien (
 	MaLoaiNV int NOT NULL AUTO_INCREMENT,
 	TenLoai VARCHAR(255) NOT NULL,
@@ -203,9 +206,9 @@ Insert into MatHang values(1,'bánh',100,1000,1);
 Insert into MatHang values(2,'chổi',1000,100,2);
 Insert into MatHang values(3,'điện thoại',5000,10,3);
 
-insert into GopY values(1,1,'dở',NOW(),'Chưa phân loại');
-insert into GopY values(2,1,'dởm',NOW(),'Chưa phân loại');
-insert into GopY values(3,2,'ok',NOW(),'Chưa phân loại');
+insert into GopY values(1,1,'dở',null,'Chưa phân loại');
+insert into GopY values(2,1,'dởm',null,'Chưa phân loại');
+insert into GopY values(3,2,'ok',null,'Chưa phân loại');
 
 insert into DonDatHang values(1,true,'atm','Tiếp nhận',100,1,null);
 insert into ChiTietDonDat values(1,1,10,100,'Chờ');

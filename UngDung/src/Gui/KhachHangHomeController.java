@@ -7,10 +7,6 @@ package Gui;
 import Entity.Gopy;
 import Entity.GopyId;
 import Entity.Dondathang;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
-
 import Entity.Khachhang;
 import Entity.Mathang;
 import Entity.GioHang;
@@ -40,9 +36,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import ungdung.UngDung;
 
 

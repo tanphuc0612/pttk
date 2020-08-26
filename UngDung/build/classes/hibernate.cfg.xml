@@ -45,23 +45,23 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/UngDung?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">chay9904189</property>
-    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.connection.password">khigia51</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
-    <mapping resource="Entity/Dondathang.hbm.xml"/>
-    <mapping resource="Entity/Khachhang.hbm.xml"/>
-    <mapping resource="Entity/Donnhaphang.hbm.xml"/>
-    <mapping resource="Entity/Hopdongquangcao.hbm.xml"/>
+    <property name="hibernate.show_sql">true</property>
+    <mapping package="Entity" resource="Entity/Dondathang.hbm.xml"/>
     <mapping resource="Entity/Doitacquangcao.hbm.xml"/>
-    <mapping resource="Entity/Loainhanvien.hbm.xml"/>
-    <mapping resource="Entity/Dontrahang.hbm.xml"/>
-    <mapping resource="Entity/Gopy.hbm.xml"/>
-    <mapping resource="Entity/Chitietdondat.hbm.xml"/>
-    <mapping resource="Entity/Nhanvien.hbm.xml"/>
-    <mapping resource="Entity/Chitietdontra.hbm.xml"/>
-    <mapping resource="Entity/Chitietdonnhaphang.hbm.xml"/>
     <mapping resource="Entity/Loaihang.hbm.xml"/>
-    <mapping resource="Entity/Mathang.hbm.xml"/>
+    <mapping resource="Entity/Hopdongquangcao.hbm.xml"/>
+    <mapping resource="Entity/Chitietdondat.hbm.xml"/>
     <mapping resource="Entity/Nhacungcap.hbm.xml"/>
+    <mapping resource="Entity/Gopy.hbm.xml"/>
+    <mapping resource="Entity/Mathang.hbm.xml"/>
+    <mapping resource="Entity/Loainhanvien.hbm.xml"/>
+    <mapping resource="Entity/Chitietdonnhaphang.hbm.xml"/>
+    <mapping resource="Entity/Khachhang.hbm.xml"/>
+    <mapping resource="Entity/Dontrahang.hbm.xml"/>
+    <mapping resource="Entity/Nhanvien.hbm.xml"/>
+    <mapping resource="Entity/Donnhaphang.hbm.xml"/>
+    <mapping resource="Entity/Chitietdontra.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -32,5 +32,6 @@
       <Text layoutX="35.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã:" />
       <Text layoutX="33.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên:" />
       <TextField fx:id="ten_field" layoutX="75.0" layoutY="412.0" />
+      <Button fx:id="home" layoutX="967.0" layoutY="18.0" mnemonicParsing="false" text="Home" />
    </children>
 </AnchorPane>

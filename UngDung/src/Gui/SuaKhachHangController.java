@@ -89,6 +89,7 @@ public class SuaKhachHangController implements Initializable {
     
     private void SuaButton(){
         sua.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            int check = 1;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             if(!ten.getText().isEmpty()){
                 khach.setTen(ten.getText());
@@ -105,14 +106,16 @@ public class SuaKhachHangController implements Initializable {
             if(!pass.getText().isEmpty()){
                 khach.setPass(pass.getText());
             }
-            if(Khachhang.UpdateKhacHang(khach)){
+            if(!Khachhang.CheckEmail(khach.getEmail())){
+                alert.setContentText("email không hợp lệ");
+            }
+            else if(Khachhang.UpdateKhacHang(khach)){
                 alert.setContentText("thành công");
-                alert.show();
                 Init(khach);
             }else{
-                alert.setContentText("bị trùng email hoặc sdt với khách hàng khác");
-                alert.show();                
+                alert.setContentText("bị trùng email hoặc sdt với khách hàng khác");             
             }
+            alert.show(); 
         });
     } 
     

@@ -48,6 +48,8 @@ public class QuanLyMatHangController implements Initializable {
     @FXML
     private Button search;    
     @FXML
+    private Button home;  
+    @FXML
     private TableView<Mathang> table;  
     @FXML
     private TableColumn<Mathang,Integer> maMathang;
@@ -119,7 +121,15 @@ public class QuanLyMatHangController implements Initializable {
             }
         });
     } 
-    
+    private void HomeButton(){
+        home.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            try {
+                Change("NhanVienHome.fxml",550,550);
+            } catch (IOException ex) {
+                Logger.getLogger(QuanLyMatHangController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+    } 
     private void XoaButton(){
         xoa.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -158,6 +168,7 @@ public class QuanLyMatHangController implements Initializable {
         this.ThemButton();
         this.CapNhatButton();
         this.XoaButton();
+        this.HomeButton();
     }    
     
 }

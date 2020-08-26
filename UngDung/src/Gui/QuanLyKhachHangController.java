@@ -43,6 +43,8 @@ public class QuanLyKhachHangController implements Initializable {
     @FXML
     private Button search;    
     @FXML
+    private Button home;    
+    @FXML
     private TableView<Khachhang> table;  
     @FXML
     private TableColumn<Khachhang,Integer> maKhachHang;
@@ -100,6 +102,16 @@ public class QuanLyKhachHangController implements Initializable {
                 Logger.getLogger(QuanLyKhachHangController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+    }     
+    
+    private void HomeButton(){
+        home.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            try {
+                Change("NhanVienHome.fxml",550,550);
+            } catch (IOException ex) {
+                Logger.getLogger(QuanLyKhachHangController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     } 
     private void CapNhatButton(){
         sua.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
@@ -141,6 +153,7 @@ public class QuanLyKhachHangController implements Initializable {
         this.ThemButton();
         this.CapNhatButton();
         this.XoaButton();
+        this.HomeButton();
     }    
     
 }

@@ -60,7 +60,11 @@ public class ThemKhachHangController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             if(ten.getText().isEmpty()||email.getText().isEmpty()||dia_chi.getText().isEmpty()||sdt.getText().isEmpty()||pass.getText().isEmpty()){
                 alert.setContentText("Cần nhập đủ thông tin");
-            }else{
+            }else if(!Khachhang.CheckEmail(email.getText()))
+            {
+                alert.setContentText("email không hợp lệ");
+            }
+            else{
                 if(Khachhang.ThemKhacHang(new Khachhang(ten.getText(),email.getText(),dia_chi.getText(),sdt.getText(),pass.getText()))){
                     alert.setContentText("Thêm thành công");
                 }else{
