@@ -24,7 +24,7 @@ public class Khachhang  implements java.io.Serializable {
      private String pass;
      private Set gopies = new HashSet(0);
      private Set dondathangs = new HashSet(0);
-     private boolean bichan;
+     private boolean bichan = false;
 
     public Khachhang() {
     }
