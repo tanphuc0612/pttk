@@ -184,11 +184,11 @@ CREATE TABLE IF NOT EXISTS ChiTietDonTra (
         ON UPDATE RESTRICT ON DELETE CASCADE
 );
 
-Insert into KhachHang values(1,'Nguyễn Văn A','123@gmail.com','456 Phan Đình phùng','123456789','1');
-Insert into KhachHang values(2,'Nguyễn Văn B','baba@gmail.com','234 Nguyễn Đình Chiểu','128456789','1');
-Insert into KhachHang values(3,'Nguyễn Văn C','bibo@gmail.com','456 Phan Đình phùng','000000000','1');
-Insert into KhachHang values(4,'Nguyễn Văn D','haiz@gmail.com','234 Nguyễn Đình Chiểu','11111111','1');
-Insert into KhachHang values(5,'Nguyễn Văn E','lol@gmail.com','456 Phan Đình phùng','99999999','1');
+Insert into KhachHang values(1,'Nguyễn Văn A','123@gmail.com','456 Phan Đình phùng','123456789','1',false);
+Insert into KhachHang values(2,'Nguyễn Văn B','baba@gmail.com','234 Nguyễn Đình Chiểu','128456789','1',false);
+Insert into KhachHang values(3,'Nguyễn Văn C','bibo@gmail.com','456 Phan Đình phùng','000000000','1',false);
+Insert into KhachHang values(4,'Nguyễn Văn D','haiz@gmail.com','234 Nguyễn Đình Chiểu','11111111','1',false);
+Insert into KhachHang values(5,'Nguyễn Văn E','lol@gmail.com','456 Phan Đình phùng','99999999','1',false);
 
 Insert into LoaiNhanVien values(1,'Nhân viên giao hàng');
 Insert into LoaiNhanVien values(2,'Nhân viên quản lý');
@@ -207,9 +207,9 @@ Insert into MatHang values(1,'bánh',100,1000,1);
 Insert into MatHang values(2,'chổi',1000,100,2);
 Insert into MatHang values(3,'điện thoại',5000,10,3);
 
-insert into GopY values(1,1,'dở',null,'Chưa phân loại',false);
-insert into GopY values(2,1,'dởm',null,'Chưa phân loại',false);
-insert into GopY values(3,2,'ok',null,'Chưa phân loại',false);
+insert into GopY values(1,1,'dở',null,'Chưa phân loại');
+insert into GopY values(2,1,'dởm',null,'Chưa phân loại');
+insert into GopY values(3,2,'ok',null,'Chưa phân loại');
 
 insert into DonDatHang values(1,true,'atm','Tiếp nhận',100,1,null);
 insert into ChiTietDonDat values(1,1,10,100,'Chờ');
