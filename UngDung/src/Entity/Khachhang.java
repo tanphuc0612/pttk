@@ -151,6 +151,11 @@ public class Khachhang  implements java.io.Serializable {
         }
         return false;
     }
+    public static boolean UpdateBiChan(Khachhang h){
+            KhachHangDB.UpdateBiChan(h);
+            return true;
+    }
+    
     public static boolean CheckEmail(String email){
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
                             "[a-zA-Z0-9_+&*-]+)*@" + 

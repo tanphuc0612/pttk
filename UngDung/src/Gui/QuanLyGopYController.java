@@ -181,7 +181,7 @@ public class QuanLyGopYController implements Initializable {
                     {
                         Khachhang b = a.getKhachhang();
                         b.setBichan(true);
-                        if(Khachhang.UpdateKhacHang(b))
+                        if(Khachhang.UpdateBiChan(b))
                         {
                             alert.setContentText("Chặn góp ý cho khách hàng " + b.getTen()+" thành công");
                                     alert.show();
